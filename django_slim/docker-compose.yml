@@ -1,0 +1,17 @@
+# version of docker-compose syntax
+version: "3.7"
+
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - static_data:/static
+    restart: always
+    env_file:
+      - .env
+
+volumes: 
+  static_data:

@@ -1,0 +1,3 @@
+Django
+uvicorn 
+gunicorn
