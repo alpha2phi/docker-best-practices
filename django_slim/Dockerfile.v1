@@ -17,7 +17,7 @@ RUN mkdir /app
 COPY . /app
 WORKDIR /app
 
-RUN chmod +x *
+# RUN chmod +x *
 
 # folder to serve static file
 RUN mkdir -p /static
