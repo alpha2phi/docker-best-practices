@@ -1,15 +1,13 @@
-FROM python:3.8-slim-buster
+FROM python:3.9-alpine
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 ENV PATH="/app:${PATH}"
 
+RUN apk add --no-cache --virtual .build-deps gcc musl-dev 
+
 RUN pip install --upgrade pip
 COPY ./requirements.txt /requirements.txt
-
-# packages required for setting up WSGI
-RUN apt-get update
-RUN apt-get install -y --no-install-recommends gcc libc-dev python3-dev
 
 RUN pip install -r /requirements.txt
 
